@@ -30,11 +30,13 @@ public class FlightSeatPlanner {
             seats.add(list);
         }
 
+        int seatColOffset = input[0][0];
         for(int inp = 1; inp < input.length - 1; inp++) {
             for(int i = 0; i < input[inp][1]; i++) {
+                int seatColStartPos = input[0][0];
                 for(int j = 0; j < input[inp][0]; j++) {
                     SeatDetail seatDetail = new SeatDetail();
-                    seatDetail.setSeatInFlightPos(i, j);
+                    seatDetail.setSeatInFlightPos(i, seatColOffset + j);
                     if(j > 0 && j < input[inp][0] - 1) {
                         seatDetail.setSeatType(SeatType.CENTER);
                     } else {
@@ -51,12 +53,13 @@ public class FlightSeatPlanner {
                     list.add(seatDetail);
                 }
             }
+            seatColOffset += input[inp][0];
         }
 
         for(int i = 0; i < input[input.length - 1][1]; i++) {
             for(int j = 0; j < input[input.length - 1][0]; j++) {
                 SeatDetail seatDetail = new SeatDetail();
-                seatDetail.setSeatInFlightPos(i, j);
+                seatDetail.setSeatInFlightPos(i, seatColOffset + j);
                 if(j == 0) {
                     seatDetail.setSeatType(SeatType.AISLE);
                 } else if(j == input[0][0] - 1) {
@@ -81,7 +84,7 @@ public class FlightSeatPlanner {
         for (LinkedList<SeatDetail> seatDetails: seats) {
             System.out.println();
             for (SeatDetail seatDetail : seatDetails) {
-                System.out.print(seatDetail.getSeatType() + ":" + seatDetail.getPassNumber() + ":" + seatDetail.getSeatInFlightPos() + " ");
+                System.out.printf("%-18s", (seatDetail.getSeatType() + ":" + seatDetail.getPassNumber() + ":" + seatDetail.getSeatInFlightPos()));
             }
         }
     }
