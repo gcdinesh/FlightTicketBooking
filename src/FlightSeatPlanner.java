@@ -33,7 +33,6 @@ public class FlightSeatPlanner {
         int seatColOffset = input[0][0];
         for(int inp = 1; inp < input.length - 1; inp++) {
             for(int i = 0; i < input[inp][1]; i++) {
-                int seatColStartPos = input[0][0];
                 for(int j = 0; j < input[inp][0]; j++) {
                     SeatDetail seatDetail = new SeatDetail();
                     seatDetail.setSeatInFlightPos(i, seatColOffset + j);
@@ -83,8 +82,14 @@ public class FlightSeatPlanner {
     public void printSeats() {
         for (LinkedList<SeatDetail> seatDetails: seats) {
             System.out.println();
+            int startSeatPositionInFlight = 0;
             for (SeatDetail seatDetail : seatDetails) {
-                for(int k = 0; k < seatDetail.j; k++)
+                if(seatDetail.j != startSeatPositionInFlight) {
+                    for (int k = startSeatPositionInFlight; k < seatDetail.j; k++) {
+                        System.out.printf("%-10s", "");
+                    }
+                }
+                startSeatPositionInFlight = seatDetail.j + 1;
                 System.out.printf("%-10s", (seatDetail.getSeatType() + ":" + seatDetail.getPassNumber() + ":" + seatDetail.getSeatInFlightPos()));
             }
         }

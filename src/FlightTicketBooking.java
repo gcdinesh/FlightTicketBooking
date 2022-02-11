@@ -1,14 +1,14 @@
 public class FlightTicketBooking {
 
     public static void main(String[] args) {
-        int[][] input = new int[3][2];
-//        input[0] = new int[]{3, 2};
-//        input[1] = new int[]{4, 3};
-//        input[2] = new int[]{2, 3};
-//        input[3] = new int[]{3, 4};
-        input[0] = new int[]{5, 4};
-        input[1] = new int[]{1, 1};
-        input[2] = new int[]{7, 11};
+        int[][] input = new int[4][2];
+        input[0] = new int[]{3, 2};
+        input[1] = new int[]{4, 3};
+        input[2] = new int[]{2, 3};
+        input[3] = new int[]{3, 4};
+//        input[0] = new int[]{5, 4};
+//        input[1] = new int[]{1, 1};
+//        input[2] = new int[]{7, 11};
         int noOfWaitingPassenger = 30;
 
 
