@@ -1,3 +1,3 @@
 public enum SeatType {
-    AISLE, WINDOW, CENTER
+    A, W, C
 }

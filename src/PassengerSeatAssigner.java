@@ -16,17 +16,17 @@ public class PassengerSeatAssigner {
         for (LinkedList<SeatDetail> seatDetails: seats) {
             for (SeatDetail seatDetail : seatDetails) {
                 switch (seatDetail.getSeatType()) {
-                    case AISLE:
+                    case A:
                         if(aislePassNumber < windowStartPos) {
                             seatDetail.setPassNumber(aislePassNumber++);
                         }
                         break;
-                    case WINDOW:
+                    case W:
                         if(windowPassNumber < centerStartPos) {
                             seatDetail.setPassNumber(windowPassNumber++);
                         }
                         break;
-                    case CENTER:
+                    case C:
                         if(centerPassNumber <= totalNumberPassenger) {
                             seatDetail.setPassNumber(centerPassNumber++);
                         }
